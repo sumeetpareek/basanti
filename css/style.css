@@ -32,7 +32,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; }
+body { margin: 0; font-size: 13px; line-height: 1.231; background:white;}
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
@@ -289,4 +289,93 @@ td { vertical-align: top; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
+}
+#main{
+
+}
+#container {}
+#d1 {
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.55);
+    border: 1px solid #FFFFFF;
+    height: 650px;
+    margin: 20px auto;
+    width: 850px;
+    position: relative;
+}
+#d2 {
+    height: 15px;
+    position: relative;
+    width: 850px;
+}
+#d3 {
+    height: 550px;
+    position: relative;
+    width: 850px;
+    overflow-y: auto;
+}
+#d4 {
+    padding: 0 10px 0;
+    position: relative;
+}
+#d5 {
+    height: 80px;
+    padding: 0 10px;
+    position: relative;
+}
+#d6 {
+    bottom: 10px;
+    position: absolute;
+}
+#d7 {
+
+}
+#d6 ul {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#d6 ul li {
+    float: left;
+    list-style: none outside none;
+    margin-right: 6px;
+    padding: 0;
+}
+#d6 ul li a {
+    background: none repeat scroll 0 0 rgba(241, 241, 241, 0.698);
+    color: #777777;
+    display: block;
+    float: left;
+    font: bold 12px Arial,sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+#d6 ul .first {}
+#d6 ul .last {}
+.l1 {}
+.l2 {}
+.l3 {}
+.l4 {}
+.l5 {}
+.l6 {}
+#d6 a#about-menu:hover, #d6 a#about-menu.active {
+    background: none repeat scroll 0 0 #009610;
+    color: #FFFFFF;
+}
+#d6 a#work-menu:hover, #d6 a#work-menu.active{
+    background: none repeat scroll 0 0 #0849F1;
+    color: #FFFFFF;
+}
+#d6 a#ways-menu:hover, #d6 a#ways-menu.active{
+    background: none repeat scroll 0 0 #F05E29;
+    color: #FFFFFF;
+}
+#d6 a#services-menu:hover, #d6 a#services-menu.active{
+    background: none repeat scroll 0 0 #EE353D;
+    color: #FFFFFF;
+}
+#d6 a#contact-menu:hover, #d6 a#contact-menu.active{
+    background: none repeat scroll 0 0 #6547A8;
+    color: #FFFFFF;
 }
