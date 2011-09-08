@@ -44,68 +44,7 @@ function bg_anim_init(secs, step_time) { // TODO: color consistency
 
 
 $(document).ready(function(){
-  //setup any slider
-  $('#slider').anythingSlider({
-    buildArrows         : false,      // If true, builds the forwards and backwards buttons
-    buildNavigation     : false,      // If true, builds a list of anchor links to link to each panel
-    buildStartStop      : false,      // If true, builds the start/stop button
-  enableKeyboard      : false,
-      
-  infiniteSlides      : false,
-  });
 
-var active = 'about';
-
-// set up external links
-$('.l a').click(function(){
-
-    var temp_arr = $(this).attr('id').split('-');
-    temp_arr.pop();
-    var slide_id = temp_arr.join('-');    
-    var slide_num = inno_slide_order[slide_id];
-    var active_num = inno_slide_order[active];  
-   
-   // If switching to already active slide, do nothing.
-   if (active == slide_id) {
-     return false;
-   }
-   // append or prepend the slide
-   if (slide_num < active_num) {
-      // if the slide to show is "lighter", it needs to go before
-      // if such "lighter" slide is moving from below the "hevier" side, adjustment is needed
-      if ($('#'+slide_id).closest('.panel').index() > $('#'+active).closest('.panel').index()) {
-        // move the sibling present before 'active slide' after it, and then move the 'to goto slide' before 'active slide'
-        $($('#'+active).prev().detach()).insertAfter($('#'+active));        
-      }
-      var slide = $('#'+slide_id).detach();
-      slide.insertBefore('#'+active);
-   } else {
-      // if the slide to show is "heavier", it needs to go after
-      // if such "heavier" slide is moving from above the "lighter" side, adjustment is needed
-      if ($('#'+slide_id).closest('.panel').index() < $('#'+active).closest('.panel').index()) {
-        // move the sibling present after 'active slide' before it, and then move the 'to goto slide' after 'active slide'
-        $($('#'+active).next().detach()).insertBefore($('#'+active));       
-      }
-        var slide = $('#'+slide_id).detach();
-        slide.insertAfter('#'+active);
-   }
-    
-
-        $('#slider').anythingSlider('#'+slide_id);
-  
-   active = slide_id;
-
-// make the current nav active
-$('.l a').removeClass('active');
-$(this).addClass('active');
-
-bg_anim_init();
-   
-    return false;
-});
-
-  // change body background gradient to the first option
-  bg_anim_init();
 
 });
 

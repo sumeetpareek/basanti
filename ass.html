@@ -1,0 +1,108 @@
+<!doctype html>
+
+<head>
+<title>ASS</title>
+<link href="http://proloser.github.com/AnythingSlider/css/anythingslider.css" type="text/css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-git.js" type="text/javascript"></script>
+<script src="js/mylibs/AnythingSlider/js/jquery.anythingslider.js" type="text/javascript"></script>
+<script src="http://proloser.github.com/AnythingSlider/js/jquery.easing.1.2.js" type="text/javascript"></script>
+
+
+<style type="text/css">
+#slider {
+ width: 300px;
+ height: 200px;
+ list-style: none;
+} 
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#slider').anythingSlider({
+  buildArrows         : false,      // If true, builds the forwards and backwards buttons
+  buildNavigation     : false,      // If true, builds a list of anchor links to link to each panel
+  buildStartStop      : false,      // If true, builds the start/stop button
+enableKeyboard      : false,
+    
+infiniteSlides      : false,
+});
+
+
+var active = 'l1';
+
+// set up external links
+$('#externalNav a').click(function(){
+    var slide_id = 'l' + $(this).attr('href').substring(1);
+    var slide_num = $(this).attr('href').substring(1);
+    var active_num = active.substring(1);  
+   
+   // If switching to already active slide, do nothing.
+   if (active == slide_id) {
+     return false;
+   }
+   // append or prepend the slide
+   if (slide_num < active_num) {
+      // if the slide to show is "lighter", it needs to go before
+      // if such "lighter" slide is moving from below the "hevier" side, adjustment is needed
+      if ($('#'+slide_id).closest('.panel').index() > $('#'+active).closest('.panel').index()) {
+        // move the sibling present before 'active slide' after it, and then move the 'to goto slide' before 'active slide'
+        $($('#'+active).prev().detach()).insertAfter($('#'+active));        
+      }
+      var slide = $('#'+slide_id).detach();
+      slide.insertBefore('#'+active);
+   } else {
+      // if the slide to show is "heavier", it needs to go after
+      // if such "heavier" slide is moving from above the "lighter" side, adjustment is needed
+      if ($('#'+slide_id).closest('.panel').index() < $('#'+active).closest('.panel').index()) {
+        // move the sibling present after 'active slide' before it, and then move the 'to goto slide' after 'active slide'
+        $($('#'+active).next().detach()).insertBefore($('#'+active));       
+      }
+        var slide = $('#'+slide_id).detach();
+        slide.insertAfter('#'+active);
+   }
+    
+
+        $('#slider').anythingSlider('#'+slide_id);
+  
+   active = slide_id;
+
+   
+    return false;
+});
+
+});
+
+
+</script>
+
+</head>
+<body>
+<div id="externalNav">
+Goto <a href="#1">One</a> |
+     <a href="#2">Two</a> |
+     <a href="#3">Three</a> |
+     <a href="#4">Four</a> |
+         <a href="#5">Fiver</a> |
+         <a href="#6">Six</a>
+</div>
+
+<br><br>
+
+<ul id="slider">
+
+    <li id='l1'><img src="http://placehold.it/300x200&text=111" alt="" /></li>
+    
+    <li id='l2'><img src="http://placehold.it/300x200&text=222" alt="" /></li>
+    
+    <li id='l3'><img src="http://placehold.it/300x200&text=333" alt="" /></li>
+    
+    <li id='l4'><img src="http://placehold.it/300x200&text=444" alt="" /></li>
+    <li id='l5'><img src="http://placehold.it/300x200&text=555" alt="" /></li>
+    <li id='l6'><img src="http://placehold.it/300x200&text=666" alt="" /></li>
+    
+</ul>
+
+  
+</body>
+
+</html>

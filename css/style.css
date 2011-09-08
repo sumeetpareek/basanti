@@ -32,7 +32,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; background:white;}
+body { margin: 0; font-size: 13px; line-height: 1.231; background:#f0f0f0;}
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
@@ -295,13 +295,15 @@ td { vertical-align: top; }
 }
 #container {}
 #d1 {
-    -moz-border-radius: 10px 10px 10px 10px;
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.55);
+    background: #ffffff;
     border: 1px solid #FFFFFF;
     height: 650px;
     margin: 20px auto;
     width: 850px;
     position: relative;
+    -moz-box-shadow: 0px 0px 20px #888;
+    -webkit-box-shadow: 0px 0px 20px #888;
+    box-shadow: 0px 0px 20px #888;
 }
 #d2 {
     height: 15px;
@@ -328,7 +330,28 @@ td { vertical-align: top; }
     position: absolute;
 }
 #d7 {
-
+    bottom: 10px;
+    position: absolute;
+    right: 6px;
+}
+#nav-logo{
+    background: none repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 120px;
+    position: relative;
+    width: 280px;
+}
+#nav-logo-bg{
+    background: url("innoraft_logo.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 120px;
+    position: absolute;
+    width: 280px;
+}
+#nav-logo-text{
+    position: absolute;
+    top: -9999px;
 }
 #d6 ul {
     float: left;
@@ -343,11 +366,10 @@ td { vertical-align: top; }
     padding: 0;
 }
 #d6 ul li a {
-    background: none repeat scroll 0 0 rgba(241, 241, 241, 0.698);
-    color: #777777;
+    color: #333333;
     display: block;
     float: left;
-    font: bold 12px Arial,sans-serif;
+    font: bold 14px Arial,sans-serif;
     padding: 5px 10px;
     text-decoration: none;
 }
